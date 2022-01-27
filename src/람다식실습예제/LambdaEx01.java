@@ -30,7 +30,12 @@ public class LambdaEx01 {
 		List<Integer> list = (List)Arrays.asList(10,20,30,40,50);
 		
 		//Stream 내부 반복자 적용
-		// 스트림의 장점 : 코드의 간결성, 병렬 처리가 컬렉션 내부에서 처리되므로 일석이조의 효과
+		/*
+		 * 내부 반복자는 요소들을 반복 순서를 변경하거나, 멀티 코어 CPU를 최대한 활용하기 위해
+		 * 요소들을 분배시켜 병렬 작업을 할 수 있게 도와주기 때문에
+		 * 하나씩 처리하는 순차적 외부 반복자보다는 효율적으로 요소를 반복 시킬 수 있다.
+		 * 스트림의 장점 : 코드의 간결성, 병렬 처리가 컬렉션 내부에서 처리되므로 일석이조의 효과
+		 */
 		Stream<Integer> stream = list.stream();
 		stream.forEach(value -> System.out.println(value));  // (x -> y) (매개값 -> 소비)
 		/*
