@@ -29,16 +29,15 @@ public class LambdaEx01 {
 		// (2) 람다식과 스트림을 적용하여 문제 해결(기존 방식보다 빅테이터 처리가 100배 이상 빠르다)
 		List<Integer> list = (List)Arrays.asList(10,20,30,40,50);
 		
-		//Stream 내부 반복자 적용
+		// Stream 내부 반복자 적용
+		// [중요] 컬렉션으로부터 스트림 얻기 => List 컬렉션의 참조변수를 통해서
+		Stream<Integer> stream = list.stream();
+		stream.forEach(value -> System.out.println(value));  // (x -> y) (매개값 -> 소비)
 		/*
 		 * 내부 반복자는 요소들을 반복 순서를 변경하거나, 멀티 코어 CPU를 최대한 활용하기 위해
 		 * 요소들을 분배시켜 병렬 작업을 할 수 있게 도와주기 때문에
 		 * 하나씩 처리하는 순차적 외부 반복자보다는 효율적으로 요소를 반복 시킬 수 있다.
 		 * 스트림의 장점 : 코드의 간결성, 병렬 처리가 컬렉션 내부에서 처리되므로 일석이조의 효과
-		 */
-		Stream<Integer> stream = list.stream();
-		stream.forEach(value -> System.out.println(value));  // (x -> y) (매개값 -> 소비)
-		/*
 		 * forEach(Consumer 람다식 표현) 메소드
 		 * Consumer 소비자 => 매개값은 있고, 리턴값은 없다. value는 매개값 -> 소비
 		 */
