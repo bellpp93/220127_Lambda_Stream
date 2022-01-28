@@ -12,11 +12,11 @@ public class MemberTest {
 												new Member("김은진", Member.FEMALE, 28),
 												new Member("안재홍", Member.MALE, 35));
 		
-		double ageAvg = list.stream()
-							.filter(m -> m.getGender() == Member.MALE)
-							.mapToInt(Member::getAge)
-							.average()
-							.getAsDouble();
+		double ageAvg = list.stream()  // 오리지날 스트림
+							.filter(m -> m.getGender() == Member.MALE)  // filter()는 Predicate 조사
+							.mapToInt(Member::getAge)  // 중간처리
+							.average()  // 최종처리
+							.getAsDouble();  //결과 값 불러오기
 		
 		System.out.format("남자 회원의 평균 나이: " + "%.2f", ageAvg);  // "%.2f", => 소수점 이하 두자리만 출력하겠다.
 	}
