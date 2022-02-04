@@ -15,7 +15,6 @@ public class MemberTest {
 												new Member("김은진", Member.FEMALE, 28),
 												new Member("안재홍", Member.MALE, 35));
 		
-
 		/*
 		 * 파이프라인을 자바 코드로 표현하면 다음과 같다.
 		 * 스트림의 특징은 일회용이다.
