@@ -15,6 +15,7 @@ public class MemberTest {
 												new Member("김은진", Member.FEMALE, 28),
 												new Member("안재홍", Member.MALE, 35));
 		
+
 		/*
 		 * 파이프라인을 자바 코드로 표현하면 다음과 같다.
 		 * 스트림의 특징은 일회용이다.
@@ -28,13 +29,12 @@ public class MemberTest {
 		OptionalDouble optionalDouble = ageStream.average();
 		double ageAvg = optionalDouble.getAsDouble();
 		*/
-		
 		// 로컬변수(참조변수)를 생략하고 연결하면 다음과 같은 형태의 파이프라인 코드만 남는다.
 		double ageAvg = list.stream()  // 오리지날 스트림
-							.filter(m -> m.getGender() == Member.MALE)  // Predicate(조사)라는 람다식 사용. 중간처리메소드
+							.filter(m -> m.getGender() == Member.MALE)  // Predicate(조사)라는 람다식 사용. filter()는 Predicate 조사. 중간처리메소드
 							.mapToInt(Member::getAge)  // ::은 '메소드 참조'를 의미한다. 중간처리메소드
 							.average()  // 최종처리메소드
-							.getAsDouble();  // 실수값을 가지고 와라.
+							.getAsDouble();  // 실수값을 가지고 와라. 결과 값 불러오기
 		
 		// 기존의 코딩 방법으로 해결 => for문, if문을 적용하여
 		/*
