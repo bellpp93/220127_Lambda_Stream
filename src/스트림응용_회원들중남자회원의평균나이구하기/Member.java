@@ -10,13 +10,13 @@ public class Member {
 	private int gender;		// 성별
 	private int age;		// 나이
 	
-	// 생성자
+	// 생성자(멤버변수 초기화는 생성자를 통해서 가능 => setter 메소드 필요없음)
 	public Member(String name, int gender, int age) {
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
 	}
-	// getter 메소드
+	// getter 메소드(멤버변수에 있는 값을 리턴받기 위해서)
 	public String getName() { return name; }
 	public int getGender() { return gender; }
 	public int getAge() { return age; }
